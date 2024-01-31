@@ -1,10 +1,12 @@
 const express = require("express");
 app = express();
 const cors = require("cors");
+const dotenv = require("dotenv")
+dotenv.config()
 
 const mongoose = require("mongoose");
 mongoose
-  .connect("mongodb://127.0.0.1:27017/starkweb")
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.log(err));
 
